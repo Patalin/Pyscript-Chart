@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Pyscript Chart</title>
+<!--    We’ll embed one stylesheet and one script in our HTML file. For reference, -->
+<!--    all HTML files that use PyScript must have a link to these:-->
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-env>
+        - matplotlib
+        - numpy
+        - paths:
+            - /static/data.py
+    </py-env>
+
+</head>
+<body>
+<h1>Pyscript Test</h1>
+<div id="plot"></div>
+
+<py-script output="plot">
+import matplotlib.pyplot as plt
+from data import create_x_and_y
+x, y = create_x_and_y(n=1000)
+
+fig, ax = plt.subplots()
+ax.scatter(x, y)
+fig
+</py-script>
+
+<py-repl>
+
+</py-repl>
+
+</body>
+</html>
+
+
+
